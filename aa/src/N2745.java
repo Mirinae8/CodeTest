@@ -15,7 +15,6 @@ public class N2745 {
 		strs[0] = in.next();
 		strs[1] = in.next();
 		
-		
 		System.out.println(Integer.parseInt(strs[0], Integer.parseInt(strs[1])));
 		
 		return;
