@@ -35,7 +35,7 @@ public class N1193 {
 		int count = 1; // 현재 대각선의 가장 작은 값 저장
 		int bunja = 0; // 현재 대각선에서 몇번째 위치인지 저장
 		while(true) {
-			// 현재 대각선이 몇번 째인지 찾는다
+			// 입력된 값이 위치한 대각선이 몇번 째인지 찾는다
 			if(targetNum >= count && targetNum < count + level) {
 				bunja = targetNum - count + 1;
 				break;
@@ -45,7 +45,7 @@ public class N1193 {
 		}
 		
 		// 대각선 순번이 짝수냐 홀수냐에 따라 시작 위치가 달라진다
-		// 대각선 
+		// 대각선 순번에 1을 더한 값이 분모 + 분자의 총합
 		if(level % 2 == 0) {
 			result = bunja + "/" + (level + 1 - bunja);
 		}
