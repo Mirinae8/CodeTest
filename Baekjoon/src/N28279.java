@@ -64,29 +64,32 @@ public class N28279 {
 				before = null;
 			}
 
-			public Node<T> getFirst() {
-				if (before == null) {
-					return this;
-				} else {
-					return before.getFirst();
-				}
-			}
-
-			public Node<T> getLast() {
-				if (next == null) {
-					return this;
-				} else {
-					return next.getLast();
-				}
-			}
+			// 재귀호출시 시간초과해서 사용 안함
+//			public Node<T> getFirst() {
+//				if (before == null) {
+//					return this;
+//				} else {
+//					return before.getFirst();
+//				}
+//			}
+//
+//			public Node<T> getLast() {
+//				if (next == null) {
+//					return this;
+//				} else {
+//					return next.getLast();
+//				}
+//			}
 		}
 
 		Node<T> first;
 		Node<T> last;
+		int size;
 
 		public Deque() {
 			first = null;
 			last = null;
+			size = 0;
 		}
 
 		public void addFirst(T t) {
@@ -99,6 +102,8 @@ public class N28279 {
 			if(last == null) {
 				last = node;
 			}
+			
+			size++;
 		}
 
 		public void addLast(T t) {
@@ -111,6 +116,7 @@ public class N28279 {
 			if(first == null) {
 				first = node;
 			}
+			size++;
 		}
 
 		public T pollFirst() {
@@ -124,7 +130,8 @@ public class N28279 {
 			} else {
 				last = null;
 			}
-
+			size--;
+			
 			return node.value;
 		}
 
@@ -139,19 +146,13 @@ public class N28279 {
 			}else {
 				first = null;
 			}
+			size--;
 
 			return node.value;
 		}
 
 		public int size() {
-			Node<T> node = first;
-			int size = 0;
-			while (node != null) {
-				node = node.next;
-				size++;
-			}
-
-			return size;
+			return this.size;
 		}
 
 		public int isEmpty() {
